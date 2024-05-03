@@ -3,7 +3,7 @@ package Calculatrice;
 public class Calcul {
 
 	public int sum(int a, int b) {
-		return b + a;
+		return a + b;
 	}
 
 	public int minus(int a, int b) {
