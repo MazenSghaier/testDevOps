@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,10 +17,9 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          distribution: 'adopt'
 
-      - name: Build with Maven
-        run: mvn -B clean package
+      - name: Run JUnit tests
+        run: |
+          javac -cp junit-platform-console-standalone-1.8.2.jar:. Calculatrice/*.java CalculTest/*.java
+          java -jar junit-platform-console-standalone-1.8.2.jar --class-path . --scan-class-path
 
-      - name: Test with JUnit
-        run: mvn test
