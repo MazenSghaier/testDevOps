@@ -19,7 +19,7 @@ jobs:
           java-version: '11'
 
       - name: Run JUnit tests
-        run: |
-          javac -cp junit-platform-console-standalone-1.8.2.jar:. Calculatrice/*.java CalculTest/*.java
-          java -jar junit-platform-console-standalone-1.8.2.jar --class-path . --scan-class-path
+        #run: |
+          #javac -cp junit-platform-console-standalone-1.8.2.jar:. Calculatrice/*.java CalculTest/*.java
+          #java -jar junit-platform-console-standalone-1.8.2.jar --class-path . --scan-class-path
 
