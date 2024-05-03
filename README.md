@@ -122,44 +122,54 @@ jobs:
   
 ![image](https://github.com/trabelsi-ibrahim/test_CI-CD_devops/assets/121525548/5fa497aa-fed4-4a57-a6d2-b02dda51d135)
 ```java
-package Calcul;
-import Clacul.Calculatrice;
-import org.junit.Test;
-import static org.junit.Assert.*;
+package CalculTest;
 
-public class CalculatriceTest {
+import static org.junit.jupiter.api.Assertions.*;
 
-    @Test
-    public void testAdditionner() {
-        Calculatrice calc = new Calculatrice();
-        assertEquals(5, calc.additionner(2, 3));
-    }
+import org.junit.Assert;
+import org.junit.jupiter.api.Test;
 
-    @Test
-    public void testSoustraire() {
-        Calculatrice calc = new Calculatrice();
-        assertEquals(1, calc.soustraire(4, 3));
-    }
+import Calculatrice.Calcul;
 
-    @Test
-    public void testMultiplier() {
-        Calculatrice calc = new Calculatrice();
-        assertEquals(12, calc.multiplier(3, 4));
-    }
+class CalculTest {
+	
+	@Test
+	public void testSum() {
+		
+		Calcul calculator = new Calcul();
+		
+		int result = calculator.sum(2, 2);
+		
+		if (result != 4) {   
+			Assert.fail();
+		}
+	}
 
-    @Test
-    public void testDiviser() {
-        Calculatrice calc = new Calculatrice();
-        assertEquals(2, calc.diviser(8, 4));
-    }
+	@Test
+	public void testMinus() {
+		Calcul calculator = new Calcul();
+		Assert.assertEquals(0, calculator.minus(2, 2));
+	}
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testDivisionParZero() {
-        Calculatrice calc = new Calculatrice();
-        calc.diviser(5, 0);
-    }
+	@Test
+	public void testDivide() {
+		Calcul calculator = new Calcul();
+		Assert.assertEquals(2, calculator.divide(6, 3));
+	}
+
+	@Test
+	public void testMultiply() {
+		Calcul calculator = new Calcul();
+		Assert.assertEquals(20, calculator.multiply(5, 4));
+	}
+
+	@Test(expected = ArithmeticException.class)
+	public void testDivideWillThrowExceptionWhenDivideOnZero() {
+		Calcul calculator = new Calcul();
+		calculator.divide(6, 0);
+	}
+
 }
-
 
 ```
 ![image](https://github.com/trabelsi-ibrahim/test_CI-CD_devops/assets/121525548/d3633492-7a47-46d5-9674-fc3474ef5916)
